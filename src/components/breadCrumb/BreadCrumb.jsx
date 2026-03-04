@@ -1,31 +1,24 @@
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+import {Breadcrumb,BreadcrumbItem,BreadcrumbList,BreadcrumbPage,BreadcrumbSeparator,} from "@/components/ui/breadcrumb"
+import Link from "next/link"
 
-const BreadCrumb = ({postDetails}) => {
+const BreadCrumb = ({postDetails , id}) => {
   return <>
 <div className="max-w-7xl mx-auto p-2">
       <Breadcrumb>
   <BreadcrumbList>
     <BreadcrumbItem>
-      <BreadcrumbLink href="/">Home</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+      <Link href="/">
+      <BreadcrumbPage>Products</BreadcrumbPage>
+      </Link>
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     {postDetails ?  <>
-     <BreadcrumbItem>
+      <BreadcrumbItem>
+      <Link href={`/${id}`}>
       <BreadcrumbPage>Product Details</BreadcrumbPage>
-    </BreadcrumbItem> 
+      </Link>
+    </BreadcrumbItem>
     </> : " "}
- 
   </BreadcrumbList>
 </Breadcrumb>
 </div>
